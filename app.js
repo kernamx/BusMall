@@ -28,4 +28,6 @@ var tauntaun = new Items('tauntaun', 'tauntaun.jpg');
 var unicorn = new Items('unicorn', 'unicorn.jpg');
 var usb = new Items('usb', 'usb.gif');
 var waterCan = new Items('waterCan', 'water-can.jpg');
-var wineGlass = new Items('wineGlass', 'wine-glass.jpg'); 
+var wineGlass = new Items('wineGlass', 'wine-glass.jpg');
+
+var itemsArr = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
