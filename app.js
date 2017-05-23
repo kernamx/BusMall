@@ -17,6 +17,7 @@ function Items(name, path) {
   this.clicked = 0;
   this.flag = false;
   this.flagCounter = 0;
+  imgArr.push(this);
 }
 
 var bag = new Items('bag', 'bag.jpg');
@@ -39,3 +40,112 @@ var unicorn = new Items('unicorn', 'unicorn.jpg');
 var usb = new Items('usb', 'usb.gif');
 var waterCan = new Items('waterCan', 'water-can.jpg');
 var wineGlass = new Items('wineGlass', 'wine-glass.jpg');
+
+var first;
+var second;
+var third;
+
+firstImg.addEventListener('click', function() {
+  trackClicks(first);
+  randImg();
+});
+
+secondImg.addEventListener('click', function() {
+  trackClicks(second);
+  randImg();
+});
+
+thirdImg.addEventListener('click', function() {
+  trackClicks(third);
+  randImg();
+});
+
+function trackClicks(image) {
+  counter++;
+  image.clicks = image.clicks + 1;
+
+  function tallyClicks() {
+    results.style.visibility = 'visible';
+
+    for (var i=0; i < timeOut.length; i++) {
+      imgArr.push(timeOut[i]);
+    }
+  }
+
+  for (var j=0; j < imgArr.length; j++) {
+    if (imgArr[j].clicks > 0) {
+      var tally = document.createElement('p');
+      tally.innerHTML = 'Items: ' + imgArr[j].name +
+      'Shown: ' + imgArr[j].shown +
+      'Clicked: ' + imgArr[j].clicked;
+      results.appendChild(tally);
+    }
+  }
+}
+
+function randImg() {
+  if (counter > 26) {
+    tallyClicks();
+  }
+  var randImg = getRandNum();
+  first = imgArr[randomIndex];
+
+  first.shown += 1;
+  first.canShow = 2;
+  timeOut.push(first);
+  imgArr.splice(randomIndex, 1);
+
+  randomIndex = getRandNum();
+  second = imgArr[randomIndex];
+
+  second.shown += 1;
+  second.canShow = 2;
+  timeOut.push(second);
+  imgArr.splice(randomIndex, 1);
+
+  randomIndex = getRandNum();
+  third = imgArr[randomIndex];
+
+  timeOut.push(third);
+  third.shown += 1;
+  third.canShow = 2;
+  imgArr.splice(randomIndex, 1);
+  displayImg();
+}
+
+function displayImg() {
+  var firstPath = document.createElement('img');
+  var secondPath = document.createElement('img');
+  var thirdPath = document.createElement('img');
+
+  firstPath.src = first.path;
+  firstImg. removeChild(firstImg.childNodes[0]);
+  firstImg.appendChild(firstPath);
+
+  secondImg.removeChild(secondImg.childNodes[0]);
+  secondPath.src = second.path;
+  secondImg. appendChild(secondPath);
+
+  thirdImg.removeChild(thirdImg.childNodes[0]);
+  thirdPath.src = third.path;
+  thirdImg.appendChild(thirdPath);
+
+  updateTimeOut();
+}
+
+function updateTimeOut() {
+  for (var i=0; i < timeOut.length; i++) {
+    if (timeOut[i].canShow > 0) {
+      timeOut[i].canShow;
+    } else {
+      imgArr.push(timeOut[i]);
+      timeOut.splice(timeOut[i]), 1);
+      i -= 1;
+    }
+  }
+}
+
+function getRandNum() {
+  return Math.floor(Math.random() * imgArr.length);
+}
+randImg();
