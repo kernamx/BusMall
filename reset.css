@@ -1,0 +1,160 @@
+
+body {
+  margin: auto;
+  width: 1000px;
+  height: 1000px;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+}
+
+header div {
+    float: left;
+    width: 900px;
+    height: 100px;
+}
+
+div img {
+  float: left;
+  font-family: 'Yellowtail', cursive;
+}
+
+#logo {
+    width: 220px;
+    height: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+div h1 {
+  font-family: 'Dancing script', cursive;
+  font-size: 30px;
+}
+
+div h5 {
+  font-size: 10px;
+}
+
+.iconDiv {
+    float: right;
+    width: 300px;
+    height: 80px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.iconDiv:nth-child(7) {
+  margin-left: 10px;
+}
+
+.littleIcon {
+  float: right;
+}
+
+main h2 {
+  margin-top: 50px;
+  margin-left: 50px;
+  font-size: 50px;
+  font-family: 'Crete Round', serif;
+
+  }
+ main h4 {
+   color: #888;
+   margin-left: 50px;
+   width: 400px;
+ }
+
+.print {
+  float: right;
+  height: 20px;
+}
+main img {
+
+  margin: 50px;
+  margin-bottom: 20px;
+}
+
+section {
+  margin: auto;
+}
+
+section p {
+  text-indent: 50px;
+  text-align: left;
+  padding-top: 10px;
+  margin-left: 50px;
+  width: 900px;
+  height: 100px;
+  color: #888;
+}
+
+.left {
+  margin-top: -50px;
+  padding-top: 75px;
+  font-size: 30px;
+  padding-left: 100px;
+}
+
+.right {
+  font-size: 30px;
+  padding-left: 550px;
+  position: relative;
+  top:-180px
+}
+
+.list {
+  margin-top: -480px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(file:///home/powen/codefellows/201/chocolate-pizza/pictures/list-bg.png)
+}
+
+footer {
+  margin-left: 60px;
+  padding-bottom: 50px;
+  position:absolute;
+  bottom: -1100px;
+  width: 900px;
+
+}
+
+button {
+    float: right;
+    margin-top: -50px;
+    margin-right: 20px;
+}
+
+.van {
+    margin-left: 90px;
+    font-family: 'Roboto', sans-serif;
+    width: 210px;
+}
+
+.food {
+    margin-left: 90px;
+    margin-top: auto;
+    width: 500px;
+}
+
+.one {
+    position: absolute;
+    top: 100px;
+    left: 415px;
+}
+
+.delici {
+    position: absolute;
+    top: 180px;
+    left: 300px;
+    color: #888;
+}
+
+.proud {
+  margin: auto;
+  position: absolute;
+  top: 200px;
+  left: 330px;
+  color: #888;
+}

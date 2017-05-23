@@ -1,5 +1,15 @@
 'use strict';
 
+var firstImg = document.getElementById('itemOne');
+var secondImg = document.getElementById('itemTwo');
+var thirdImg = document.getElementById('itemThree');
+var imgArr = [];
+var timeOut = [];
+var counter = 0;
+
+var results = document.getElementById('results');
+
+
 function Items(name, path) {
   this.name = name;
   this.path = path;
@@ -28,4 +38,4 @@ var tauntaun = new Items('tauntaun', 'tauntaun.jpg');
 var unicorn = new Items('unicorn', 'unicorn.jpg');
 var usb = new Items('usb', 'usb.gif');
 var waterCan = new Items('waterCan', 'water-can.jpg');
-var wineGlass = new Items('wineGlass', 'wine-glass.jpg'); 
+var wineGlass = new Items('wineGlass', 'wine-glass.jpg');
