@@ -150,3 +150,17 @@ function getRandNum() {
   return Math.floor(Math.random() * imgArr.length);
 }
 randImg();
+
+
+var canvas = document.getElementById('chart');
+var ctx = canvas.getContext('2d');
+
+var chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [];
+    data: randImg(),
+    backgroundColor: ['#444', '#888', '#e3e3e3', '#9cafb1' ];
+  }
+  options: {}
+});
