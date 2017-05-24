@@ -20,26 +20,26 @@ function Items(name, path) {
   imgArr.push(this);
 }
 
-var bag = new Items('bag', 'bag.jpg');
-var banana = new Items('banana', 'banana.jpg');
-var bathroom = new Items('bathroom', 'bathroom.jpg');
-var boots = new Items('boots', 'boots.jpg');
-var breakfast = new Items('breakfast', 'breakfast.jpg');
-var bubblegum = new Items('bubblegum', 'bubblegum.jpg');
-var chair = new Items('chair', 'chair.jpg');
-var cthulhu = new Items('cthulhu', 'cthulhu.jpg');
-var dogDuck = new Items('dogDuck', 'dog-duck.jpg');
-var dragon = new Items('dragon', 'dragon.jpg');
-var pen = new Items('pen', 'pen.jpg');
-var petSweep = new Items('petSweep', 'pet-sweep.jpg');
-var scissors = new Items('scissors', 'scissors.jpg');
-var shark = new Items('shark', 'shark.jpg');
-var sweep = new Items('sweep', 'sweep.png');
-var tauntaun = new Items('tauntaun', 'tauntaun.jpg');
-var unicorn = new Items('unicorn', 'unicorn.jpg');
-var usb = new Items('usb', 'usb.gif');
-var waterCan = new Items('waterCan', 'water-can.jpg');
-var wineGlass = new Items('wineGlass', 'wine-glass.jpg');
+var bag = new Items('bag', 'assets/bag.jpg');
+var banana = new Items('banana', 'assets/banana.jpg');
+var bathroom = new Items('bathroom', 'assets/bathroom.jpg');
+var boots = new Items('boots', 'assets/boots.jpg');
+var breakfast = new Items('breakfast', 'assets/breakfast.jpg');
+var bubblegum = new Items('bubblegum', 'assets/bubblegum.jpg');
+var chair = new Items('chair', 'assets/chair.jpg');
+var cthulhu = new Items('cthulhu', 'assets/cthulhu.jpg');
+var dogDuck = new Items('dogDuck', 'assets/dog-duck.jpg');
+var dragon = new Items('dragon', 'assets/dragon.jpg');
+var pen = new Items('pen', 'assets/pen.jpg');
+var petSweep = new Items('petSweep', 'assets/pet-sweep.jpg');
+var scissors = new Items('scissors', 'assets/scissors.jpg');
+var shark = new Items('shark', 'assets/shark.jpg');
+var sweep = new Items('sweep', 'assets/sweep.png');
+var tauntaun = new Items('tauntaun', 'assets/tauntaun.jpg');
+var unicorn = new Items('unicorn', 'assets/unicorn.jpg');
+var usb = new Items('usb', 'assets/usb.gif');
+var waterCan = new Items('waterCan', 'assets/water-can.jpg');
+var wineGlass = new Items('wineGlass', 'assets/wine-glass.jpg');
 
 var first;
 var second;
@@ -118,28 +118,29 @@ function displayImg() {
   var secondPath = document.createElement('img');
   var thirdPath = document.createElement('img');
 
-  firstPath.src = first.path;
-  firstImg. removeChild(firstImg.childNodes[0]);
+  firstPath.src = bag.path;
+  //firstImg. removeChild(firstImg.childNodes[0]);
   firstImg.appendChild(firstPath);
 
-  secondImg.removeChild(secondImg.childNodes[0]);
-  secondPath.src = second.path;
+  //secondImg.removeChild(secondImg.childNodes[0]);
+  secondPath.src = boots.path;
   secondImg. appendChild(secondPath);
 
-  thirdImg.removeChild(thirdImg.childNodes[0]);
-  thirdPath.src = third.path;
+  //thirdImg.removeChild(thirdImg.childNodes[0]);
+  thirdPath.src = pen.path;
   thirdImg.appendChild(thirdPath);
 
   updateTimeOut();
 }
+displayImg();
 
 function updateTimeOut() {
   for (var i=0; i < timeOut.length; i++) {
     if (timeOut[i].canShow > 0) {
-      timeOut[i].canShow;
+      timeOut[i].canShow--;
     } else {
       imgArr.push(timeOut[i]);
-      timeOut.splice(timeOut[i]), 1);
+      timeOut.splice(timeOut[i], 1);
       i -= 1;
     }
   }
