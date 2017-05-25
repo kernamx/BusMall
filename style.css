@@ -1,4 +1,4 @@
-
+/*
 
 main {
     width: 700px;
@@ -7,7 +7,7 @@ main {
     outline: dotted 3px blue;
 }
 
-#itemOne {
+/*#itemOne {
 
     width: 200px;
     height: 200px;
@@ -39,4 +39,44 @@ main img {
   margin: 0px;
   width: 200px;
   height: 200px;
+}*/
+
+
+
+body {
+  width: 960px;
+  outline: dotted 3px green;
+}
+
+.display {
+  width: 960px;
+  position: relative;
+  outline: dotted 3px blue;
+}
+
+.survey {
+  width: 290px;
+  height: 310px;
+  padding: 10px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 1px #ddd;
+  outline: dotted 3px red;
+}
+
+ul {
+  width: 480px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+  border: solid 1px #ddd;
+  color: #92CFFF;
+  box-shadow: 2px 2px 1px #ddd;
+  outline: dotted 3px black;
+
+}
+
+li {
+  list-style: none;
+  font-family: 'Roboto Slab', serif;
+  outline: dotted 3px yellow;
 }
