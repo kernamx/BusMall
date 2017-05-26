@@ -1,13 +1,12 @@
 'use strict';
 
-var firstImg = document.getElementById('itemOne');
-var secondImg = document.getElementById('itemTwo');
-var thirdImg = document.getElementById('itemThree');
+var firstImg = document.getElementById('item-one');
+var secondImg = document.getElementById('item-two');
+var thirdImg = document.getElementById('item-three');
 var imgArr = [];
 var display = [];
+var resultsArr = [];
 var counter = 0;
-
-var results = document.getElementById('results');
 
 
 function Items(name, path) {
@@ -18,160 +17,102 @@ function Items(name, path) {
   imgArr.push(this);
 }
 
-var bag = new Items('bag', 'assets/bag.jpg');
-var banana = new Items('banana', 'assets/banana.jpg');
-var bathroom = new Items('bathroom', 'assets/bathroom.jpg');
-var boots = new Items('boots', 'assets/boots.jpg');
-var breakfast = new Items('breakfast', 'assets/breakfast.jpg');
-var bubblegum = new Items('bubblegum', 'assets/bubblegum.jpg');
-var chair = new Items('chair', 'assets/chair.jpg');
-var cthulhu = new Items('cthulhu', 'assets/cthulhu.jpg');
-var dogDuck = new Items('dogDuck', 'assets/dog-duck.jpg');
-var dragon = new Items('dragon', 'assets/dragon.jpg');
-var pen = new Items('pen', 'assets/pen.jpg');
-var petSweep = new Items('petSweep', 'assets/pet-sweep.jpg');
-var scissors = new Items('scissors', 'assets/scissors.jpg');
-var shark = new Items('shark', 'assets/shark.jpg');
-var sweep = new Items('sweep', 'assets/sweep.png');
-var tauntaun = new Items('tauntaun', 'assets/tauntaun.jpg');
-var unicorn = new Items('unicorn', 'assets/unicorn.jpg');
-var usb = new Items('usb', 'assets/usb.gif');
-var waterCan = new Items('waterCan', 'assets/water-can.jpg');
-var wineGlass = new Items('wineGlass', 'assets/wine-glass.jpg');
+new Items('bag', 'assets/bag.jpg');
+new Items('banana', 'assets/banana.jpg');
+new Items('bathroom', 'assets/bathroom.jpg');
+new Items('boots', 'assets/boots.jpg');
+new Items('breakfast', 'assets/breakfast.jpg');
+new Items('bubblegum', 'assets/bubblegum.jpg');
+new Items('chair', 'assets/chair.jpg');
+new Items('cthulhu', 'assets/cthulhu.jpg');
+new Items('dogDuck', 'assets/dog-duck.jpg');
+new Items('dragon', 'assets/dragon.jpg');
+new Items('pen', 'assets/pen.jpg');
+new Items('petSweep', 'assets/pet-sweep.jpg');
+new Items('scissors', 'assets/scissors.jpg');
+new Items('shark', 'assets/shark.jpg');
+new Items('sweep', 'assets/sweep.png');
+new Items('tauntaun', 'assets/tauntaun.jpg');
+new Items('unicorn', 'assets/unicorn.jpg');
+new Items('usb', 'assets/usb.gif');
+new Items('waterCan', 'assets/water-can.jpg');
+new Items('wineGlass', 'assets/wine-glass.jpg');
 
-var first;
-var second;
-var third;
+var clickEvent = function() {
+  var imgID = event.target.id;
+  for (var i=0; i < imgArr.length; i++) {
+    if (imgArr[i].name === imgID) {
+      imgArr[i].clicked++;
+    }
+  }
+  selectPics();
+  counter++;
+  if (counter >= 25) {
+    firstImg.removeEventListener('click', clickEvent);
+    secondImg.removeEventListener('click', clickEvent);
+    thirdImg.removeEventListener('click', clickEvent);
+    results();
+  }
+  console.log('counter: ', counter);
+};
+
+firstImg.addEventListener('click', clickEvent);
+secondImg.addEventListener('click', clickEvent);
+thirdImg.addEventListener('click', clickEvent);
+
+//this function is to displayImg also render each pic to element
+function displayImg(randomOne, randomTwo, randomThree, firstPath, secondPath, thirdPath) {
+  console.log('firstPath is ', firstPath);
+  firstImg.setAttribute('src', firstPath.path);
+  firstImg.setAttribute('id', firstPath.name);
+
+  console.log('secondPath is ', secondPath);
+  secondPath.setAttribute('src', secondPath.path);
+  secondPath.setAttribute('id', secondPath.name);
+
+  console.log('thirdPath is ', thirdPath);
+  thirdPath.setAttribute('src', thirdPath.path);
+  thirdPath.setAttribute('id', thirdPath.name);
+
+  display.push(imgArr[randomOne]);
+  display.push(imgArr[randomTwo]);
+  display.push(imgArr[randomThree]);
+}
+
+function results() {
+  var list = document.getElementById('results');
+  var item = document.createElement('ul');
+  for (var i=0; i < imgArr.length; i++) {
+    resultsArr.push('<li> name: ' + 'Clicks: ' + imgArr[i].clicked + 'times shown: ' + imgArr[i].shown + '</li>');
+  }
+  resultsArr = resultsArr.join(',');
+  item.innerHTML = resultsArr;
+  list.appendChild(item);
+}
 
 function getRandNum() {
   return imgArr[Math.floor(Math.random() * imgArr.length)];
 }
+function selectPics() {
+  var randomOne = getRandNum();
+  var firstPath = imgArr[randomOne];
 
-function selectImg() {
-  var imgOne = getRandNum();
-  var firstPath = imgArr[imgOne];
+  var randomTwo = getRandNum();
+  while(randomTwo === randomOne) {
+    randomTwo = getRandNum();
+  }
+  var secondPath = imgArr[randomTwo];
 
-  var imgTwo = getRandNum();
-  var secondPath = imgArr[imgTwo];
+  var randomThree = getRandNum();
+  while (randomThree === randomOne || randomThree === randomTwo) {
+    randomThree = getRandNum();
+  }
+  var thirdPath = imgArr[randomThree];
 
-  var imgThree = getRandNum();
-  var thirdPath = imgArr[imgThree];
+  firstPath.shown++;
+  secondPath.shown++;
+  thirdPath.shown++;
+
+  displayImg(randomOne, randomTwo, randomThree, firstPath, secondPath, thirdPath);
 }
-
-
-//function render
-
-
-
-function displayImg() {
-  var firstPath = document.createElement('img');
-  var secondPath = document.createElement('img');
-  var thirdPath = document.createElement('img');
-
-  firstPath.src = bag.path;
-  firstImg.appendChild(firstPath);
-
-
-  secondPath.src = boots.path;
-  secondImg. appendChild(secondPath);
-
-
-  thirdPath.src = pen.path;
-  thirdImg.appendChild(thirdPath);
-
-}
-displayImg();
-
-function clear() {
-  firstImg.innerHTML = '';
-  secondImg.innerHTML = '';
-  thirdImg.innerHTML = '';
-}
-
-firstImg.addEventListener('click', function() {
-  clear();
-  selectImg();
-});
-
-secondImg.addEventListener('click', function() {
-  clear();
-  selectImg();
-});
-
-thirdImg.addEventListener('click', function() {
-  clear();
-  selectImg();
-});
-
-
-// function trackClicks(image) {
-//   counter++;
-//   image.clicks = image.clicks + 1;
-//
-//   function tallyClicks() {
-//     results.style.visibility = 'visible';
-//
-//     for (var i=0; i < timeOut.length; i++) {
-//       imgArr.push(timeOut[i]);
-//     }
-//   }
-//
-//   for (var j=0; j < imgArr.length; j++) {
-//     if (imgArr[j].clicks > 0) {
-//       var tally = document.createElement('p');
-//       tally.innerHTML = 'Items: ' + imgArr[j].name +
-//       'Shown: ' + imgArr[j].shown +
-//       'Clicked: ' + imgArr[j].clicked;
-//       results.appendChild(tally);
-//     }
-//   }
-// }
-
-// function randImg() {
-//   if (counter > 26) {
-//     tallyClicks();
-//   }
-//   var randImg = getRandNum();
-//   first = imgArr[randomIndex];
-//
-//   first.shown += 1;
-//   first.canShow = 2;
-//   timeOut.push(first);
-//   imgArr.splice(randomIndex, 1);
-//
-//   randomIndex = getRandNum();
-//   second = imgArr[randomIndex];
-//
-//   second.shown += 1;
-//   second.canShow = 2;
-//   timeOut.push(second);
-//   imgArr.splice(randomIndex, 1);
-//
-//   randomIndex = getRandNum();
-//   third = imgArr[randomIndex];
-//
-//   timeOut.push(third);
-//   third.shown += 1;
-//   third.canShow = 2;
-//   imgArr.splice(randomIndex, 1);
-//   displayImg();
-// }
-
-
-
-// function updateTimeOut() {
-//   for (var i=0; i < timeOut.length; i++) {
-//     if (timeOut[i].canShow > 0) {
-//       timeOut[i].canShow--;
-//     } else {
-//       imgArr.push(timeOut[i]);
-//       timeOut.splice(timeOut[i], 1);
-//       i -= 1;
-//     }
-//   }
-// }
-
-// function getRandNum() {
-//   return Math.floor(Math.random() * imgArr.length);
-// }
-// randImg();
+selectPics();
