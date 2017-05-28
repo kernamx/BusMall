@@ -1,5 +1,8 @@
+body {
+  background: yellow;
+}
+
 header {
-  outline: dotted 3px green;
   background: #888;
 }
 
@@ -11,7 +14,6 @@ h1 {
 .pic-holder {
   margin-left: 50px;
   display: inline-block;
-  outline: solid 5px green;
   width: 230px;
   height: 230px;
 
@@ -19,4 +21,13 @@ h1 {
 img {
 width: 230px;
 height: 230px;
+}
+
+#results {
+  height: 800px;
+}
+
+li {
+  margin: 20px;
+  float: left;
 }
