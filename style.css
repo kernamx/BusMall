@@ -1,22 +1,22 @@
-
-
-/*main {
-    width: 700px;
-    height: 200px;
-    margin: 30px;
-    outline: dotted 3px blue;
-}*/
-
-.pic-holder {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    /*margin-top: 50px;
-    margin-right: 50px;*/
-    outline: dotted 3px black;
+header {
+  outline: dotted 3px green;
+  background: #888;
 }
 
+h1 {
+  font-size: 80px;
+  text-align: center;
+}
+
+.pic-holder {
+  margin-left: 50px;
+  display: inline-block;
+  outline: solid 5px green;
+  width: 230px;
+  height: 230px;
+
+}
 img {
-  width: 200px;
-  height: 200px;
+width: 230px;
+height: 230px;
 }
