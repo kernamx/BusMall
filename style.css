@@ -1,82 +1,22 @@
-/*
-
-main {
-    width: 700px;
-    height: 900px;
-    margin: 30px;
-    outline: dotted 3px blue;
-}
-
-/*#itemOne {
-
-    width: 200px;
-    height: 200px;
-    margin-top: 50px;
-    margin-right: 50px;
-    outline: dotted 3px black;
-}
-
-#itemTwo {
-
-
-    width: 200px;
-    height: 200px;
-    margin-top: -200px;
-    margin-left: 250px;
-    outline: dotted 3px orange;
-}
-
-#itemThree {
-
-      width: 200px;
-      height: 200px;
-      margin-top: -200px;
-      margin-left: 500px;
-      outline: dotted 3px green;
-}
-
-main img {
-  margin: 0px;
-  width: 200px;
-  height: 200px;
-}*/
-
-
-
-body {
-  width: 960px;
+header {
   outline: dotted 3px green;
+  background: #888;
 }
 
-.display {
-  width: 960px;
-  position: relative;
-  outline: dotted 3px blue;
+h1 {
+  font-size: 80px;
+  text-align: center;
 }
 
-.survey {
-  width: 290px;
-  height: 310px;
-  padding: 10px;
-  margin-left: 10px;
-  box-shadow: 2px 2px 1px #ddd;
-  outline: dotted 3px red;
-}
-
-ul {
-  width: 480px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 2px;
-  border: solid 1px #ddd;
-  color: #92CFFF;
-  box-shadow: 2px 2px 1px #ddd;
-  outline: dotted 3px black;
+.pic-holder {
+  margin-left: 50px;
+  display: inline-block;
+  outline: solid 5px green;
+  width: 230px;
+  height: 230px;
 
 }
-
-li {
-  list-style: none;
-  font-family: 'Roboto Slab', serif;
-  outline: dotted 3px yellow;
+img {
+width: 230px;
+height: 230px;
 }
